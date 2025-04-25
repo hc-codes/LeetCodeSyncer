@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "LeetCodePusher": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "LEETCODE_SESSION_COOKIE": "your_actual_session_cookie_here",
+        "LEETCODE_CSRF_TOKEN": "your_csrf_token_here",
+        "GITHUB_TOKEN": "your_github_token_here",
+        "REPO_OWNER": "your_github_account",
+        "REPO_NAME": "LeetCode",
+        "TARGET_BRANCH": "main",
+        "LEETCODE_USERNAME": "your_leetcode_username",
+        "PROGRAMMING_LANGUAGE": "python"
+      }
+    }
+  }
+}
