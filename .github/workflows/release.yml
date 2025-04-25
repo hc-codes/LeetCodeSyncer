@@ -2,6 +2,7 @@ name: Publish Single EXE Release
 
 on:
   push:
+    branches: [ "master" ]
     tags:
       - 'v*'  # Triggers on tags like v1.0.0
 
@@ -34,5 +35,5 @@ jobs:
       with:
         files: |
           **/bin/Release/net8.0/win-x64/publish/*.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
