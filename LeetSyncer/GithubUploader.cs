@@ -1,8 +1,9 @@
-﻿using Octokit;
+﻿using System.Text.Encodings.Web;
+using Octokit;
 
 namespace LeetSyncer;
 
-public class GitHubUploader
+public class GitHubUploader : IGithubUploader
 {
     private readonly GitHubClient _client;
     private readonly string _owner;

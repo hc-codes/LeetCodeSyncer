@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace LeetSyncer;
 
-class Program
+class LeetCodeSyncer
 {
     private static readonly HttpClient _client = new();
 
@@ -21,6 +21,8 @@ class Program
 
     // Other settings
     private const string LeetCodeUri = "https://leetcode.com/graphql";
+
+    private static IGithubUploader _ghe;
 
     static async Task Main(string[] args)
     {
@@ -49,10 +51,10 @@ class Program
                     }
 
                     // Push the solution to GitHub
-                    var ghe = new GitHubUploader(GitHubToken, RepoOwner, RepoName);
+                    _ghe = new GitHubUploader(GitHubToken, RepoOwner, RepoName);
                     problem.Question = fetchLeetCodeQuestionAsMarkdownTask.Result;
                     problem.TimeStamp = DateTimeOffset.FromUnixTimeSeconds(timestamp).Date.ToString("yyyy-MM-dd");
-                    await ghe.PushSolutionAsync(problem, solution);
+                    await _ghe.PushSolutionAsync(problem, solution);
                 }
                 catch (Exception ex)
                 {
