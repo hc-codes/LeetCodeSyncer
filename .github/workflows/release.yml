@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'  # Triggers on tags like v1.0.0
 
+permissions:
+  contents: write
+
 jobs:
   publish:
 
@@ -31,3 +34,5 @@ jobs:
       with:
         files: |
           **/bin/Release/net8.0/win-x64/publish/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
